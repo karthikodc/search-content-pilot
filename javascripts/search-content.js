@@ -29,7 +29,7 @@ function init() {
        + '+0000'; 
 } */
 function result(docId) {
-	var request = osapi.jive.core.documents.get({id: finalDocID});
+	var request = osapi.jive.core.documents.get({id: docId});
 	console.log("After doc Request");
 	request.execute(function(response) { 
 		console.log("searching documents response is " + JSON.stringify(response.data));
