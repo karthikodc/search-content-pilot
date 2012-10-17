@@ -28,6 +28,21 @@ function init() {
        + '.' + String( (date.getUTCMilliseconds()/1000).toFixed(3) ).slice( 2, 5 )
        + '+0000'; 
 } */
+function result(docId) {
+	var request = osapi.jive.core.documents.get({id: finalDocID});
+	console.log("After doc Request");
+	request.execute(function(response) { 
+		console.log("searching documents response is " + JSON.stringify(response.data));
+		var message=response.data;
+		if (response.error) {
+			console.log("Error in get: "+response.error.message);
+		}
+		else
+		{
+			console.log("Im in esle");
+		}
+	})
+}
 
 // Perform a search and display the results
 function search() {
@@ -99,17 +114,10 @@ function search() {
 							console.log("documents Id " + documentID); */
 							var finalDocID = (url.substring(url.lastIndexOf("-"))).substr(1);
 							console.log("finalDocID Id " + finalDocID);
-							var request = osapi.jive.core.documents.get({id: finalDocID});
-							console.log("After doc Request");
-							request.execute(function(response) { 
-							console.log("searching documents response is " + JSON.stringify(response.data));
-							var message=response.data;
-							if (response.error) {
-								console.log("Error in get: "+response.error.message);
-								}
-								else
-								{
-									var request = message.container.get();
+							
+							result(finalDocID);
+							
+									/*var request = message.container.get();
 									request.execute(function(response) {
 										 if(!response.error) {
 											var container = response.data;
@@ -148,10 +156,10 @@ function search() {
 										 
 										 }
 									
-									});
+									});*/
 								
-								}
-							 });
+								//}
+							// });
 						}
 						
 						
