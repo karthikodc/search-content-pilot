@@ -99,23 +99,25 @@ function search() {
 							console.log("documents Id " + documentID); */
 							var finalDocID = (url.substring(url.lastIndexOf("-"))).substr(1);
 							console.log("finalDocID Id " + finalDocID);
-							var request = osapi.jive.core.documents.get({id: finalDocID});
+							//var request = 
+							osapi.jive.core.documents.get({id: finalDocID}).execute(function(response);
 							console.log("After doc Request");
-							request.execute(function(response) { 
+							//request { 
 							console.log("searching documents response is " + JSON.stringify(response.data));
+							var message=response.data;
 							if (response.error) {
 								console.log("Error in get: "+response.error.message);
 								}
 								else
 								{
-									var request = response.data.container.get();
+									var request = message.container.get();
 									request.execute(function(response) {
 										 if(!response.error) {
 											var container = response.data;
 											console.log("searching documents container response is " + JSON.stringify(response.data));
 											if(container instanceof osapi.jive.core.Group) { 
 													console.log("Document Display Name ::" +container.displayName);
-													creationDate=container.creationDate;
+													creationDate=message.creationDate;
 													if(container.displayName == "accenturetest")
 													{
 														console.log("I am here:::document!");
