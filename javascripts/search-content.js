@@ -156,7 +156,7 @@ function search() {
 			  
 				});
             
-            
+				console.log("completed Document:");
 				html +=discussion;
 				html +="<br>"+document;
 				html +="<br>"+update;
