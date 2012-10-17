@@ -99,10 +99,9 @@ function search() {
 							console.log("documents Id " + documentID); */
 							var finalDocID = (url.substring(url.lastIndexOf("-"))).substr(1);
 							console.log("finalDocID Id " + finalDocID);
-							//var request = 
-							osapi.jive.core.documents.get({id: finalDocID}).execute(function(response) { 
+							var request = osapi.jive.core.documents.get({id: finalDocID});
 							console.log("After doc Request");
-							//request
+							request.execute(function(response) { 
 							console.log("searching documents response is " + JSON.stringify(response.data));
 							var message=response.data;
 							if (response.error) {
