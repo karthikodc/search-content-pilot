@@ -94,12 +94,12 @@ function search() {
 					avatar=row.author.avatarURL;
 					username=row.author.username;
 					
-						if(row.type=="document"){
-							/* var documentID = (url.substring(url.lastIndexOf("/"))).substr(1);
-							console.log("documents Id " + documentID); */
-							var finalDocID = (url.substring(url.lastIndexOf("-"))).substr(1);
-							console.log("finalDocID Id " + finalDocID);
-							var request = osapi.jive.core.documents.get({id: finalDocID});
+						if(row.type=="discussion"){
+							 var discussionID = (url.substring(url.lastIndexOf("/"))).substr(1);
+							console.log("discussion Id " + discussionID); 
+							/*var finalDocID = (url.substring(url.lastIndexOf("-"))).substr(1);
+							console.log("finalDocID Id " + finalDocID);*/
+							var request = osapi.jive.core.discussions.get({id: finalDocID});
 							console.log("After doc Request");
 							request.execute(function(response) { 
 							console.log("searching documents response is " + JSON.stringify(response.data));
@@ -113,41 +113,41 @@ function search() {
 									request.execute(function(response) {
 										 if(!response.error) {
 											var container = response.data;
-											console.log("searching documents container response is " + JSON.stringify(response.data));
+											console.log("searching discussion container response is " + JSON.stringify(response.data));
 											if(container instanceof osapi.jive.core.Group) { 
-													console.log("Document Display Name ::" +container.displayName);
+													console.log("discussion Display Name ::" +container.displayName);
 													creationDate=message.creationDate;
 													if(container.displayName == "accenturetest")
 													{
-														console.log("I am here:::document!");
-														document +='<div>';
-														document +='<ul>';
-														document +='<li class="document"/>';
-														document +='<a href="'+url+'">'+subject+'</a></li>';
-														document +='</ul>';
+														console.log("I am here:::discussion!");
+														discussion +='<div>';
+														discussion +='<ul>';
+														discussion +='<li class="discussion"/>';
+														discussion +='<a href="'+url+'">'+subject+'</a></li>';
+														discussion +='</ul>';
 														
-														document +='<h5>';
-														document +='<ul>';
-														document +='<li>Created by<a href=https://apps-onprem.jivesoftware.com/people/'+username+'>'+author+'</a></li>';
-														document +='</ul>';
+														discussion +='<h5>';
+														discussion +='<ul>';
+														discussion +='<li>Created by<a href=https://apps-onprem.jivesoftware.com/people/'+username+'>'+author+'</a></li>';
+														discussion +='</ul>';
 													   
-														document +='<ul>';
-														document +='<b>';
-														document +='<li>'+contentSummary+'</li>';
-														document +='</b>';
-														document +='</ul>';
+														discussion +='<ul>';
+														discussion +='<b>';
+														discussion +='<li>'+contentSummary+'</li>';
+														discussion +='</b>';
+														discussion +='</ul>';
 													   
-														document +='<ul>';                                       
-														document +='<li>Created:'+creationDate+'</li>';
-														document +='<li>Last Modified:'+modifiedDate+'</li>';                
-														document +='<li>Replies:'+replyCount+'</li>';                  
-														document +='<li>Likes:'+likeCount+'</li>';              
-														document +='</ul>';	
-														document +='</div>';														
+														discussion +='<ul>';                                       
+														discussion +='<li>Created:'+creationDate+'</li>';
+														discussion +='<li>Last Modified:'+modifiedDate+'</li>';                
+														discussion +='<li>Replies:'+replyCount+'</li>';                  
+														discussion +='<li>Likes:'+likeCount+'</li>';              
+														discussion +='</ul>';	
+														discussion +='</div>';														
 													}
-													console.log("Html Document: "+ document);
-													console.log("completed Document:");
-													html +=document;
+													console.log("Html discussion: "+ discussion);
+													console.log("completed discussion:");
+													html +=discussion;
 													console.log("Html:: "+html);
 													$("#search-results").html(html);
 													$("#search-info").show();
