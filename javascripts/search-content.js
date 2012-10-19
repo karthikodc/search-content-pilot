@@ -143,11 +143,12 @@ function search() {
 														discussion +='<li>Replies:'+replyCount+'</li>';                  
 														discussion +='<li>Likes:'+likeCount+'</li>';              
 														discussion +='</ul>';	
-														discussion +='</div>';														
+														discussion +='</div>';	
+														console.log("Html discussion: "+ discussion);
+														console.log("completed discussion:");
+														html +=discussion;														
 													}
-													console.log("Html discussion: "+ discussion);
-													console.log("completed discussion:");
-													html +=discussion;
+													
 													console.log("Html:: "+html);
 													$("#search-results").html(html);
 													$("#search-info").show();
