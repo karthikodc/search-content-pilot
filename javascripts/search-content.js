@@ -149,11 +149,12 @@ function search() {
 														html +=discussion;														
 													}
 													
-													console.log("Html:: "+html);
-													$("#search-results").html(html);
-													$("#search-info").show();
-													gadgets.window.adjustHeight();
+													
 											}
+											console.log("Html:: "+html);
+											$("#search-results").html(html);
+											$("#search-info").show();
+											gadgets.window.adjustHeight();
 										 
 										 }
 									
