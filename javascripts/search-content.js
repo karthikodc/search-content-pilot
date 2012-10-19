@@ -148,6 +148,10 @@ function search() {
 													console.log("Html Document: "+ document);
 													console.log("completed Document:");
 													html +=document;
+													console.log("Html:: "+html);
+													$("#search-results").html(html);
+													$("#search-info").show();
+													gadgets.window.adjustHeight();
 											}
 										 
 										 }
@@ -168,10 +172,7 @@ function search() {
 				//html +="<br>"+post;
 				//html +="<br>"+blog;
 			
-				console.log("Html:: "+html);
-				$("#search-results").html(html);
-				$("#search-info").show();
-				gadgets.window.adjustHeight();
+				
         }
     });
 }
