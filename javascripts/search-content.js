@@ -120,6 +120,7 @@ function search() {
 													if(container.displayName == "accenturetest")
 													{
 														console.log("I am here:::document!");
+														document +='<div>';
 														document +='<ul>';
 														document +='<li class="document"/>';
 														document +='<a href="'+url+'">'+subject+'</a></li>';
@@ -141,7 +142,8 @@ function search() {
 														document +='<li>Last Modified:'+modifiedDate+'</li>';                
 														document +='<li>Replies:'+replyCount+'</li>';                  
 														document +='<li>Likes:'+likeCount+'</li>';              
-														document +='</ul>';											
+														document +='</ul>';	
+														document +='</div>';														
 													}
 													console.log("Html Document: "+ document);
 													console.log("completed Document:");
@@ -166,7 +168,7 @@ function search() {
 				//html +="<br>"+post;
 				//html +="<br>"+blog;
 			
-				// console.log(html);
+				console.log("Html:: "+html);
 				$("#search-results").html(html);
 				$("#search-info").show();
 				gadgets.window.adjustHeight();
