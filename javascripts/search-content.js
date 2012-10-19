@@ -143,8 +143,9 @@ function search() {
 														document +='<li>Likes:'+likeCount+'</li>';              
 														document +='</ul>';											
 													}
+													console.log("Html Document: "+ document);
 													console.log("completed Document:");
-													html +=discussion;
+													html +=document;
 											}
 										 
 										 }
