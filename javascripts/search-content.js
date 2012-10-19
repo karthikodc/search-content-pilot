@@ -99,7 +99,7 @@ function search() {
 							console.log("discussion Id " + discussionID); 
 							/*var finalDocID = (url.substring(url.lastIndexOf("-"))).substr(1);
 							console.log("finalDocID Id " + finalDocID);*/
-							var request = osapi.jive.core.discussions.get({id: finalDocID});
+							var request = osapi.jive.core.discussions.get({id: discussionID});
 							console.log("After doc Request");
 							request.execute(function(response) { 
 							console.log("searching documents response is " + JSON.stringify(response.data));
