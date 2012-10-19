@@ -151,10 +151,7 @@ function search() {
 													
 													
 											}
-											console.log("Html:: "+html);
-											$("#search-results").html(html);
-											$("#search-info").show();
-											gadgets.window.adjustHeight();
+											
 										 
 										 }
 									
@@ -163,7 +160,10 @@ function search() {
 								}
 							 });
 						}
-						
+						console.log("Html:: "+html);
+						$("#search-results").html(html);
+						$("#search-info").show();
+						gadgets.window.adjustHeight();
 						
 			  
 				});
